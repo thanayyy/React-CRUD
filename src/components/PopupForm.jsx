@@ -3,9 +3,9 @@ import PropsType from "prop-types";
 import axios from "axios";
 import { useState } from "react";
 
-export default function PopupForm({ isOpen, onClose, onSubmit, initialData }) {
-  const [author, setAuthor] = useState(initialData.author || "");
-  const [title, setTitle] = useState(initialData.title || "");
+export default function PopupForm({ isOpen, onClose, onSubmit}) {
+  const [author, setAuthor] = useState( "");
+  const [title, setTitle] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();

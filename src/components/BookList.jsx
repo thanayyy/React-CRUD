@@ -12,7 +12,6 @@ export default function BookList() {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [formData, setFormData] = useState([]);
-  const [editingData, setEditingData] = useState(null); // Holds the data being edited
 
   const handleOpenPopup = () => setIsPopupOpen(true);
   const handleClosePopup = () => setIsPopupOpen(false);
@@ -48,7 +47,6 @@ export default function BookList() {
 
   const updateBook = (book) => {
     console.log("upDFunc: ", book);
-    setEditingData(book);
     console.log("upDFunc: ", editingData);
     // axios
     //   .put(`https://node41091-noderest.proen.app.ruk-com.cloud/books/${id}`)
@@ -83,16 +81,7 @@ export default function BookList() {
               <td>{book.author}</td>
               <td>
                 <button onClick={() => viewBook(book.id)}>View</button>
-                <div>
                 <button onClick={() => updateBook(book)}>Update</button>
-                <PopupForm
-                  isOpen={isPopupOpen}
-                  onClose={handleClosePopup}
-                  onSubmit={handleFormSubmit}
-                  initialData={editingData}
-                />
-                </div>
-
                 <button onClick={() => deleteBook(book.id)}>Delete</button>
               </td>
             </tr>
@@ -101,12 +90,10 @@ export default function BookList() {
       </table>
       <div>
         <button onClick={handleOpenPopup}>Add Author and Title</button>
-
         <PopupForm
           isOpen={isPopupOpen}
           onClose={handleClosePopup}
           onSubmit={handleFormSubmit}
-          initialData={editingData}
         />
         {/* Render submitted data or other components here */}
       </div>
