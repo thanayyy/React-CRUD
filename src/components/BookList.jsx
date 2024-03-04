@@ -47,7 +47,7 @@ export default function BookList() {
 
   const updateBook = (book) => {
     console.log("upDFunc: ", book);
-    console.log("upDFunc: ", editingData);
+    //console.log("upDFunc: ", editingData);
     // axios
     //   .put(`https://node41091-noderest.proen.app.ruk-com.cloud/books/${id}`)
     //   .then((response) => {
